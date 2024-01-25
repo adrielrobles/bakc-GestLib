@@ -25,4 +25,8 @@ class Book extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function librarySections()
+    {
+        return $this->typeCopies->flatMap->librarySections;
+    }
 }

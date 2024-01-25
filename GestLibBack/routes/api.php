@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::middleware(['auth:sanctum', 'cors'])->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    
 });
 
-Route::post('/login', [AuthController::class, 'login']);
-
-Route::middleware(['auth'])->group(function () {
-    Route::resource('rents', RentController::class);
-    Route::resource('books', BookController::class);
-});
-
+Route::resource('rents', RentController::class);
+Route::resource('books', BookController::class);

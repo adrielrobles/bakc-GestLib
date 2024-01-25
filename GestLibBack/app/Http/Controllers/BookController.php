@@ -10,7 +10,7 @@ class BookController extends Controller
 {
     public function index(Request $request)
     {
-        $perPage = 1; 
+        $perPage = 10; 
         $pageNumber = $request->input('page', 1); 
     
         $librarySections = LibrarySection::where('available_copies', '>', 0)

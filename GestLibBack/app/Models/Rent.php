@@ -28,6 +28,8 @@ class Rent extends Model
 
         static::creating(function ($rent) {
             $rent->rent_date = Carbon::now();
+            $rent->return_date= Carbon::now()->addDays(15);
+
         });
     }
 }

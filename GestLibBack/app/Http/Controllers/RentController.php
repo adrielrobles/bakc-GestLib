@@ -15,10 +15,7 @@ class RentController extends Controller
         return view('rents.index', compact('rents'));
     }
 
-    public function create()
-    {
-        return view('rents.create');
-    }
+    
 
     public function store(RentRequest $request)
     {
